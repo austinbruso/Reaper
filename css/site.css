@@ -10,9 +10,19 @@ body {
     
 }
 
+.logo {
+    color: purple;
+}
+
 
 nav{
     background-color: var(--dark-color);
+}
+
+
+
+.container-fluid {
+    margin-bottom: -45;
 }
 
 footer{
@@ -20,6 +30,15 @@ footer{
     
 }
 
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:10px !important; padding-bottom:0 !important;
+    height: 30px;
+}
+.navbar {min-height:100px !important;}
+
+.logoName {
+    font-size: 40px;
+}
 
 footer {
     overflow: hidden;
@@ -73,9 +92,6 @@ main>.container {
 
 }
 
-.checklist >li i {
-    /* color: var(--secondary-color); */
-}
 
 code[class*="language-"],
 pre[class*="language-"] {
