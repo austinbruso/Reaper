@@ -1,72 +1,68 @@
-// Grab HTML Values
+// Get Input Value
+function getValues() {
+    
+    // Grab Input Values
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+    
+    // Change Strings into Integer Values
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
 
-function getValues () {
-    // Get Values from Page
-        let startValue = document.getElementById("startValue").value;
-        let endValue = document.getElementById("endValue").value;
-    
-    // Convert String Values into Integers
-        startValue = parseInt(startValue);
-        endValue = parseInt(endValue);
-    
-    
-    // Validate Integers    
-        if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
-            let numbers =  generateNumbers(startValue, endValue);
-            displayNumbers(numbers);
-        } else {
-            alert("Enter Valid Integer from 0 to 100.");
-        }
+    // Make sure numbers passed in are integers 
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+        // Generate Numbers
+        let numbers = generateNumbers(startValue, endValue);
+        // Display Results
+        displayNumbers(numbers);
+    } else {
+        alert("Please put in Integer values only....");
     }
-    
-// Generate Numbers from startValue to endValue
+
+}
+
+// Generate Numbers
 function generateNumbers(sValue, eValue) {
-    // Declare Array To Pass Numbers Into
+    
+    // Array Variable to Pass Numbers Into
     let numbers = [];
 
-    // Range of Numbers
+    // Create Range of Numbers
     for (let index = sValue; index <= eValue; index++) {
-    // Push Range of Numbers into the Array
+        // Push the values into array
         numbers.push(index);
     }
 
     return numbers;
 }
 
+// Display Numbers
+function displayNumbers(numbers) {
+    // Display numbers to screen
+    let templateRow = "";
 
-function displayNumbers(numbers){
-    // Display Numbers to Screen
-    
-    let templateRows = "";
-
-   
-    // Loop Through Range of Numbers for Display
+    // Loop through array of numbers for display
     for (let index = 0; index < numbers.length; index++) {
+        
         let className = "even";
 
         let number = numbers[index];
-
-    // Decide Which Even Numbers to Bold
-    if (number % 2 == 0) {
-          className = "even";
-    
+        
+        // Decide which numbers to Bold
+        if(number % 2 == 0) {
+            className = "even";
         } else {
-         
-        className = "odd";
+            className = "odd";
+        }
+
+        templateRow += `<tr><td class="${className}">${number}</td></tr>`;
+
     }
+    
+    document.getElementById("results").innerHTML = templateRow;
 
-    templateRows += `<tr><td class="${className}">${number}</td></tr>`;
-
-    }
-
-    document.getElementById("results").innerHTML = templateRows;
-}   
-
-
-
-
-
-
+    
+}
 
 
 
